@@ -36,27 +36,6 @@ class CapturingSpanProcessor extends SimpleSpanProcessor {
 }
 
 
-// // Custom span processor to capture logs
-// class CapturingSpanProcessor extends SimpleSpanProcessor {
-//   onEnd(span) {
-//     const attributes = span.attributes || {};
-
-//     // Extract relevant HTTP attributes
-//     const logEntry = {
-//       method: attributes['http.method'],
-//       url: attributes['http.url'],
-//       statusCode: attributes['http.status_code'],
-//       timestamp: new Date().toISOString(),
-//     };
-
-//     // Ensure method exists before pushing
-//     if (logEntry.method) {
-//       apiLogs.push(logEntry);
-//       console.log(`Captured API Log: ${JSON.stringify(logEntry)}`);
-//     }
-//   }
-// }
-
 // Create OpenTelemetry SDK with custom processor
 const sdk = new NodeSDK({
   traceExporter: new ConsoleSpanExporter(),
